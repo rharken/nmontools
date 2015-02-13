@@ -1,5 +1,5 @@
 # nmontools
-Tools for running and collecting nmon data across a cluster
+Tools for running and collecting nmon data across a linux cluster
 
 	* runnmon.sh - a script to run nmon on all nodes in a cluster
 	* nmonnodes.conf - a configuration file for defining the available nodes
