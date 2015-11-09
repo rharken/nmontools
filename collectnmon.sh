@@ -1,8 +1,15 @@
 #!/bin/sh
+#set -x
 
 # Script to automate the shutting down of nmon on a distributed cluster
 # and collecting the nmon data
 # Assumes passwordless ssh to all nodes
+if [ ! -f .running ];
+	then
+		echo "No session currently active!"
+		echo "Please start a monitoring session first with runnmon.sh!"
+		exit 1
+fi
 
 pidList=`cat nmon.pidlist`
 #echo $nodeList
@@ -28,6 +35,7 @@ done
 rm -f nmon.zip
 zip nmon.zip *nmon
 rm -f *nmon
+rm -f .running
 echo Now download nmon.zip and start the spreadsheet processing
 
 
